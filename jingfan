@@ -1,0 +1,35 @@
+# Facts (From above)
+Parent(John, Mary)
+Parent(Mary, Alice)
+Parent(Alice, James)
+Parent(James, Olivia)
+Parent(John, Peter)
+Parent(Peter, Sarah)
+# Rules
+Parent(X, Y):=X is the parent of Y
+Grandparent(X, Y):= Parent(X, Z) AND Parent(Z, Y)
+Sibling(X, Y):= Parent(Z, X) AND Parent(Z, Y) AND X != Y
+Cousin(X, Y):= Parent(A, X) AND Parent(B, Y) AND Parent(Z, A) AND Parent(Z, B) AND A != B
+Ancestor(X, Y):= Parent(X, Y) OR (Parent(X, Z) AND Parent(Z, Y)) OR (Parent(X, Z) AND Ancestor(Z, Y))
+# Test examples
+# Grandparent(John, Olivia)
+
+Parent(John, Mary) is true, but Parent(Mary, Olivia) is false
+so Grandparent(John, Olivia) is false
+
+# Cousin(Olivia, Sarah)
+
+Parent(James, Olivia) is true, Parent(Peter, Sarah) is true, Parent(John, Peter) is true,but Parent(John, James) is false
+so Cousin(Olivia, Sarah) is false
+
+# Ancestor(John, Olivia)
+
+Parent(John, Mary) is true, Parent(Mary, Alice) is true, Parent(Alice, James) is true, Parent(James, Olivia) is true
+so Ancestor(John, Olivia) is true
+
+# Sibling(Alice, Peter)
+
+Parent(Mary, Alice) is true, Parent(Mary, Peter) is true, Alice != Peter
+so Sibling(Alice, Peter) is true
+
+```
