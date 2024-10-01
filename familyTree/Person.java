@@ -1,14 +1,15 @@
 package familyTree;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+
 
 public class Person {
     private String name;
-    LinkedList<Person> children;
+    ArrayList<Person> children;
 
     public Person(String name) {
         this.name = name;
-        this.children = new LinkedList<Person>();
+        this.children = new ArrayList<Person>();
     }
 
     public void addChild(Person child) {
