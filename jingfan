@@ -29,7 +29,7 @@ so Ancestor(John, Olivia) is true
 
 # Sibling(Alice, Peter)
 
-Parent(Mary, Alice) is true, Parent(Mary, Peter) is true, Alice != Peter
-so Sibling(Alice, Peter) is true
+Parent(Mary, Alice) is true, Parent(Mary, Peter) is false, Alice != Peter
+so Sibling(Alice, Peter) is false
 
-```
+Please do the actual coding for the ancestor logic that you created.
